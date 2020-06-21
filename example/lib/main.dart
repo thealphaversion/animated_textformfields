@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Animated TextFields Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -28,15 +29,18 @@ class DemoPage extends StatefulWidget {
   _DemoPageState createState() => _DemoPageState();
 }
 
-class _DemoPageState extends State<DemoPage> {
+class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
   FocusNode myFocusNode = FocusNode();
-  TextEditingController textEditingControllerAnimated = new TextEditingController();
+  TextEditingController textEditingControllerAnimated =
+      new TextEditingController();
   TextEditingController textEditingControllerLite = new TextEditingController();
+  TextEditingController textEditingControllerSlideIn = new TextEditingController();
 
   @override
   void dispose() {
     textEditingControllerAnimated.dispose();
     textEditingControllerLite.dispose();
+    textEditingControllerSlideIn.dispose();
     myFocusNode.dispose();
     super.dispose();
   }
@@ -103,17 +107,44 @@ class _DemoPageState extends State<DemoPage> {
           ),
           // this example describes how to use CustomTextFormFieldLite
           CustomTextFormFieldLite(
-              width: MediaQuery.of(context).size.width * 0.875,
-              height: 48.0,
-              inputType: TextInputType.text,
-              hintText: "Name",
-              controller: textEditingControllerLite,
-              textStyle: TextStyle(
-                color: Colors.black,
-                fontSize: 16.0,
-              ),
-              cornerRadius: BorderRadius.circular(14.0),
+            width: MediaQuery.of(context).size.width * 0.875,
+            height: 48.0,
+            inputType: TextInputType.text,
+            hintText: "Name",
+            controller: textEditingControllerLite,
+            textStyle: TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
             ),
+            cornerRadius: BorderRadius.circular(14.0),
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(36.0, 24.0, 12.0, 4.0),
+              child: Text(
+                'SlideInTextFormField',
+                style: TextStyle(
+                  fontSize: 18.0,
+                ),
+                maxLines: 1,
+              ),
+            ),
+          ),
+          // this example describes how to use SlideInTextFormField
+          SlideInTextFormField(
+            vsync: this,
+            width: MediaQuery.of(context).size.width * 0.875,
+            height: 48.0,
+            inputType: TextInputType.text,
+            fieldText: "Name",
+            controller: textEditingControllerSlideIn,
+            textStyle: TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
+            ),
+            cornerRadius: BorderRadius.circular(14.0),
+          ),
         ],
       ),
     );
