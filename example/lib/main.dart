@@ -30,11 +30,13 @@ class DemoPage extends StatefulWidget {
 
 class _DemoPageState extends State<DemoPage> {
   FocusNode myFocusNode = FocusNode();
-  TextEditingController mytextController = new TextEditingController();
+  TextEditingController textEditingControllerAnimated = new TextEditingController();
+  TextEditingController textEditingControllerLite = new TextEditingController();
 
   @override
   void dispose() {
-    mytextController.dispose();
+    textEditingControllerAnimated.dispose();
+    textEditingControllerLite.dispose();
     myFocusNode.dispose();
     super.dispose();
   }
@@ -78,14 +80,40 @@ class _DemoPageState extends State<DemoPage> {
             height: 48.0,
             inputType: TextInputType.text,
             hintText: "Name",
-            controller: mytextController,
+            controller: textEditingControllerAnimated,
             textStyle: TextStyle(
               color: Colors.black,
               fontSize: 16.0,
             ),
             focusNode: myFocusNode,
             cornerRadius: BorderRadius.circular(14.0),
-          )
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(36.0, 24.0, 12.0, 4.0),
+              child: Text(
+                'CustomTextFormFieldLite',
+                style: TextStyle(
+                  fontSize: 18.0,
+                ),
+                maxLines: 1,
+              ),
+            ),
+          ),
+          // this example describes how to use CustomTextFormFieldLite
+          CustomTextFormFieldLite(
+              width: MediaQuery.of(context).size.width * 0.875,
+              height: 48.0,
+              inputType: TextInputType.text,
+              hintText: "Name",
+              controller: textEditingControllerLite,
+              textStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 16.0,
+              ),
+              cornerRadius: BorderRadius.circular(14.0),
+            ),
         ],
       ),
     );

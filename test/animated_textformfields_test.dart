@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:animated_textformfields/animated_textformfields.dart';
 
 void main() {
-  TextEditingController textEditingController = new TextEditingController();
+  TextEditingController textEditingControllerAnimated = new TextEditingController();
+  TextEditingController textEditingControllerLite = new TextEditingController();
   FocusNode focusNode = new FocusNode();
-  testWidgets('Animated TextField renders', (WidgetTester tester) async {
+  testWidgets('Animated TextFormField renders', (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
-        title: 'Animated TextField Test',
+        title: 'Animated TextFormField Test',
         home: Scaffold(
           body: Container(
             child: AnimatedTextFormField(
@@ -17,12 +18,36 @@ void main() {
               height: 48.0,
               inputType: TextInputType.text,
               hintText: "Name",
-              controller: textEditingController,
+              controller: textEditingControllerAnimated,
               textStyle: TextStyle(
                 color: Colors.black,
                 fontSize: 16.0,
               ),
               focusNode: focusNode,
+              cornerRadius: BorderRadius.circular(14.0),
+            ),
+          ),
+        ),
+      ),
+    );
+  });
+
+  testWidgets('Custom TextFormField Lite renders', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        title: 'Custom TextFormField Lite Test',
+        home: Scaffold(
+          body: Container(
+            child: CustomTextFormFieldLite(
+              width: 200.0,
+              height: 48.0,
+              inputType: TextInputType.text,
+              hintText: "Name",
+              controller: textEditingControllerLite,
+              textStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 16.0,
+              ),
               cornerRadius: BorderRadius.circular(14.0),
             ),
           ),

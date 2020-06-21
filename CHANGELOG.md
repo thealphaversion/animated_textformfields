@@ -1,3 +1,8 @@
-## [0.0.1] - TODO: Add release date.
+## [0.1.0] - 21/06/2020
 
-* TODO: Describe initial release.
+Added initial animated TextFormField that toggles between animatiion states based on wheter is has focus or not.
+
+
+## [0.2.0] - 21/06/2020
+
+Added a custom TextFormField that does not animate. It will be used to complete another animated TextFormField, but can also be used as a standalone version.

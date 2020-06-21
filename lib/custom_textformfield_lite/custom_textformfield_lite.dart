@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:animated_textformfields/definitions/callbacks.dart';
 
-class AnimatedTextFormField extends StatefulWidget {
+// defining a stringcallback that will be used to display validation messages
+// typedef StringCallback = String Function(String);
+
+class CustomTextFormFieldLite extends StatefulWidget {
   // sets the duration for the animation
   // default is 500 milliseconds
   final Duration animationDuration;
@@ -64,8 +67,6 @@ class AnimatedTextFormField extends StatefulWidget {
 
 
   // defines the focusNode
-  // is used to switch between the animated states
-  // based on whether the textformfield has focus
   final FocusNode focusNode;
 
 
@@ -97,11 +98,11 @@ class AnimatedTextFormField extends StatefulWidget {
   final bool enabled;
   final GestureTapCallback onTap;
 
-  const AnimatedTextFormField(
+  const CustomTextFormFieldLite(
       {Key key,
       this.animationDuration = const Duration(milliseconds: 500),
       @required this.width,
-      @required this.focusNode,
+      this.focusNode,
       this.height = 48.0,
       this.inputType,
       this.controller,
@@ -128,55 +129,38 @@ class AnimatedTextFormField extends StatefulWidget {
       this.onSubmitted})
       : assert(width != null),
         assert(height != null),
-        assert(focusNode != null),
         super(key: key);
 
   @override
-  _AnimatedTextFormFieldState createState() => _AnimatedTextFormFieldState();
+  _CustomTextFormFieldLiteState createState() => _CustomTextFormFieldLiteState();
 }
 
-class _AnimatedTextFormFieldState extends State<AnimatedTextFormField> {
+class _CustomTextFormFieldLiteState extends State<CustomTextFormFieldLite> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      // animates the textformfield
-      child: AnimatedContainer(
+      child: Container(
         width: widget.width,
         height: widget.height,
         margin: widget.margin,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          boxShadow: widget.hasShadow
-              ? [
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 2,
-                    spreadRadius: 1,
-                  ),
-                ]
-              : [
-                  BoxShadow(
-                    color: Colors.black38,
-                    // has the effect of softening the shadow
-                    blurRadius: 1.0,
-                    // has the effect of extending the shadow
-                    spreadRadius: 0.5,
-                    offset: Offset(
-                      0.0,
-                      0.0,
-                    ),
-                  )
-                ],
-                // gives the widget rounded corners
-          borderRadius: widget.focusNode.hasFocus
-              ? widget.focusedCornerRadius
-              : widget.cornerRadius,
-              // defines the color of the widget
-          color: widget.focusNode.hasFocus
-              ? widget.focusColor
-              : widget.backgroundColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              blurRadius: 1.0,
+              // has the effect of softening the shadow
+              spreadRadius: 0.5,
+              // has the effect of extending the shadow
+              offset: Offset(
+                0.0, // horizontal, move right 10
+                0.0, // vertical, move down 10
+              ),
+            )
+          ],
+          borderRadius: widget.cornerRadius,
+          color: widget.backgroundColor,
         ),
-        duration: widget.animationDuration,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: TextFormField(
@@ -188,9 +172,7 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField> {
             controller: widget.controller,
             validator: widget.validator,
             obscureText: widget.obscureText,
-            keyboardType: widget.inputType == null
-                ? TextInputType.text
-                : widget.inputType,
+            keyboardType: widget.inputType,
             autofocus: widget.autofocus,
             autocorrect: widget.autocorrect,
             focusNode: widget.focusNode,
@@ -199,7 +181,6 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField> {
             maxLines: widget.maxLines,
             minLines: widget.minLines,
             onChanged: widget.onChanged,
-            cursorColor: widget.cursorColor,
             onTap: () {
               if (widget.onTap != null) {
                 widget.onTap();
@@ -208,9 +189,7 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField> {
             onFieldSubmitted: (t) {
               widget.onSubmitted(t);
             },
-            textInputAction: widget.textInputAction == null
-                ? TextInputAction.done
-                : widget.textInputAction,
+            textInputAction: TextInputAction.done,
           ),
         ),
       ),
