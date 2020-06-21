@@ -2,7 +2,7 @@ name: animated_textformfields
 description: A package that provides multiple animated and customized textfields for quick use.
 version: 1.0.0
 author: Aditya Chakraborti<adityachakraborti14@gmail.com>
-homepage: https://github.com/thealphaversion/animated_textfields.git
+homepage: https://github.com/thealphaversion/animated_textformfields.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
