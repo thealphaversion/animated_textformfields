@@ -4,9 +4,7 @@ A Flutter package that has a collection of animated (and some not so animated) T
 
 ## Example
 
-<figure class="video_container">
-  <iframe src="https://drive.google.com/file/d/1b4qu4kqDSN2hbWL65rAAJJ1WDMazHVjY/preview" width="480" height="768"></iframe>
-</figure>
+![](gif/animated_textformfield.gif)
 
 <a class="github-button" href="https://github.com/thealphaversion" aria-label="Follow @thealphaversion on GitHub">Follow @thealphaversion</a>
 
