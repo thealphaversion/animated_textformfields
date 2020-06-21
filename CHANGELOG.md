@@ -11,6 +11,6 @@ Added a custom TextFormField that does not animate. It will be used to complete 
 
 Added a slide_in TextFormField that animated between the hint text showing up inside the text field when the text is empty, and above the textformfield when it is filled with text.
 
-## [1.0.1] - 21/06/2020
+## [1.0.1] - 22/06/2020
 
 Updated homepage for the package
