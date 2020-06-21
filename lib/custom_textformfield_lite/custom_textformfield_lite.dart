@@ -128,7 +128,6 @@ class CustomTextFormFieldLite extends StatefulWidget {
       this.textInputAction,
       this.onSubmitted})
       : assert(width != null),
-        assert(height != null),
         super(key: key);
 
   @override

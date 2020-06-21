@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:animated_textformfields/animated_textformfields.dart';
 
 void main() {
-  TextEditingController textEditingControllerAnimated = new TextEditingController();
+  TextEditingController textEditingControllerAnimated =
+      new TextEditingController();
   TextEditingController textEditingControllerLite = new TextEditingController();
+  TextEditingController textEditingControllerSlideIn = new TextEditingController();
   FocusNode focusNode = new FocusNode();
   testWidgets('Animated TextFormField renders', (WidgetTester tester) async {
     await tester.pumpWidget(

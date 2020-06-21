@@ -127,7 +127,6 @@ class AnimatedTextFormField extends StatefulWidget {
       this.textInputAction,
       this.onSubmitted})
       : assert(width != null),
-        assert(height != null),
         assert(focusNode != null),
         super(key: key);
 

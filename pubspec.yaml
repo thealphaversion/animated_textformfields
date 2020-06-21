@@ -1,7 +1,7 @@
 name: animated_textformfields
 description: A package that provides multiple animated and customized textfields for quick use.
-version: 0.1.0
-author: Aditya Chakraborti
+version: 1.0.0
+author: Aditya Chakraborti<adityachakraborti14@gmail.com>
 homepage: https://github.com/thealphaversion/animated_textfields.git
 
 environment:
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  animated_size_and_fade: ^1.1.1
 
 dev_dependencies:
   flutter_test:
