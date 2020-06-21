@@ -4,7 +4,7 @@ A Flutter package that has a collection of animated (and some not so animated) T
 
 ## Example
 
-![](gif/animated_textformfield.gif)
+![](gif/animated_demo.gif)
 
 <a class="github-button" href="https://github.com/thealphaversion" aria-label="Follow @thealphaversion on GitHub">Follow @thealphaversion</a>
 
