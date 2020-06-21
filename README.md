@@ -6,9 +6,6 @@ A Flutter package that has a collection of animated (and some not so animated) T
 
 ![](gif/animated_demo.gif)
 
-<a class="github-button" href="https://github.com/thealphaversion" aria-label="Follow @thealphaversion on GitHub">Follow @thealphaversion</a>
-
-
 ## Descriptions
 
 #### Animated TextFormField
@@ -78,3 +75,9 @@ CustomTextFormFieldLite(
     cornerRadius: BorderRadius.circular(14.0),
 )
 ```
+
+## Author
+
+<a class="github-button" href="https://github.com/thealphaversion" aria-label="Follow @thealphaversion on GitHub">Follow @thealphaversion</a>
+
+<a class="github-button" href="https://www.linkedin.com/in/aditya-chakraborti/" aria-label="LinkedIn: thealphaversion">LinkedIn: @Aditya Chakraborti</a>
